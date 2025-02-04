@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bigotes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Cargar el plugin para gráficos de BoxPlot -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-boxplot@3.1.0"></script>
+	<style >
+        
+canvas {
+    width: 700px;
+    height: auto;
+    border: 1px solid black;
+      
+}
+
+
+		
+
+
+
+	</style>
+</head>
+<body>
+     
+<input type="text" id="inputDatos" placeholder="Ej: 5, 3, 9, 1, 7" size="40">
+    <br>
+    <button onclick="ordenarDatos()">Ordenar</button>
+    
+    <h3>Datos ordenados:</h3>
+    <p id="resultado"></p>
+     <h3>Cantidad de datos:</h3>
+    <p id="cantidad"></p>
+    <h3>primer cuartil:</h3>
+    <p id="pc"></p>
+    <h3>segundo cuartil:</h3>
+    <p id="sc"></p>
+    <h3>tercer cuartil:</h3>
+    <p id="tc"></p>
+  <canvas id="grafica" width="1000" height="1000"></canvas>
+
+    
+  codigo fuente por Alberto Perez <a href="https://github.com/alberto789u/boxplot">aqui </a>
+<script type="text/javascript" src="bigotes.js"></script>
+</body>
+</html>
