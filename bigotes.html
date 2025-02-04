@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>bigotes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bigotes</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Cargar el plugin para gráficos de BoxPlot -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-boxplot@3.1.0"></script>
-	<style >
-        
+    <style>
 canvas {
     width: 700px;
     height: auto;
     border: 1px solid black;
-      
+    display: inline-block;
+    vertical-align: top; /* Para alinear verticalmente con yaxis */
 }
+#yaxis {
+    transform: rotate(-90deg); /* Rotar el texto */
+    transform-origin: left center; /* Punto de origen de la rotación */
+    display: inline-block;
+    vertical-align: bottom; /* Para alinear verticalmente con el canvas */
+    padding-right: 10px; /* Espacio entre el texto y el borde del canvas */
+}
+#xaxis {
+    display: block;
+     /* Centrar el texto */
+    padding-top: 10px; /* Espacio entre el texto y el borde del canvas */
+}
+#title{
 
-
-		
-
-
-
-	</style>
+    
+}
+</style>
 </head>
 <body>
-     
-<input type="text" id="inputDatos" placeholder="Ej: 5, 3, 9, 1, 7" size="40">
+     <input type="text" id="tit" size="40" placeholder='titulo'><br>
+     <input type="text" id="xlabel" size="40" placeholder='eje x'><br>
+     <input type="text" id="ylabel" size="40" placeholder="eje y"><br>
+     <input type="text" id="inputDatos" placeholder="Ej: 5, 3, 9, 1, 7" size="40">
     <br>
     <button onclick="ordenarDatos()">Ordenar</button>
     
@@ -40,10 +50,12 @@ canvas {
     <p id="sc"></p>
     <h3>tercer cuartil:</h3>
     <p id="tc"></p>
-  <canvas id="grafica" width="1000" height="1000"></canvas>
-
+    <h2><div id="title">Titulo</div></h2>
+    <div id="yaxis">Eje Y</div>
+    <canvas id="grafica" width="1000" height="1000"></canvas>
+    <div id="xaxis">Eje X</div>
+    <br>
     
-  codigo fuente por Alberto Perez <a href="https://github.com/alberto789u/boxplot">aqui </a>
-<script type="text/javascript" src="bigotes.js"></script>
+    <script type="text/javascript" src="bigotes.js"></script>
 </body>
 </html>
