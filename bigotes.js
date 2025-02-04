@@ -2,15 +2,11 @@
 
 function calcularCuartil(arreglo, porcentaje) {
     const longitud = arreglo.length;
-    const pos = (longitud - 1) * porcentaje;
-
-    if (Number.isInteger(pos)) {
-        return arreglo[pos];
-    } else {
-        const posInferior = Math.floor(pos);
-        const posSuperior = Math.ceil(pos);
-        return (arreglo[posInferior] + arreglo[posSuperior]) / 2;
-    }
+    const pos = (longitud - 1) * porcentaje+1;
+    const indice = Math.floor(pos);
+    if (indice >= longitud) return arreglo[longitud - 1];
+    if (indice <= 0) return arreglo[0];
+    return arreglo[indice - 1] + (pos - indice) * (arreglo[indice] - arreglo[indice - 1]);
 }
 
 function ordenarDatos() {
@@ -36,11 +32,15 @@ function ordenarDatos() {
              const min =arrayDatos[0];
              const max =arrayDatos[c-1]
              let ddd = [min,q1,m,q3,max];
-
-
+              const title=document.getElementById("tit").value;
+              const xAxisLabel=document.getElementById("xlabel").value;
+              const yAxisLabel=document.getElementById("ylabel").value;
+              document.getElementById("xaxis").innerHTML = xAxisLabel;
+              document.getElementById("yaxis").innerHTML = yAxisLabel;
+              document.getElementById("title").innerHTML = title;
             let r =arrayDatos[c-1]-arrayDatos[0];
 
-            draw(ddd);
+            draw(ddd,title , xAxisLabel , yAxisLabel );
             
            
 
@@ -49,10 +49,9 @@ function ordenarDatos() {
        
     
 }
-function draw(arr) { 
-
-        const canvas = document.getElementById("grafica");
-        if (canvas.getContext) {``
+function draw(arr, title , xAxisLabel , yAxisLabel  ) { 
+  const canvas = document.getElementById("grafica");
+        if (canvas.getContext) {
           const ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       let i;
@@ -84,6 +83,12 @@ function draw(arr) {
           ctx.fillText(arr[2], (1000/rt)*(arr[2]-i)-10, 430);
           ctx.fillText(arr[3], (1000/rt)*(arr[3]-i)-10, 550);
           ctx.fillText(arr[4], (1000/rt)*(arr[4]-i)-10, 550);
-
-        }
-      }        
+      
+      // Título de la gráfica
+      
+      
+      
+      ctx.save();
+      
+  }
+}
